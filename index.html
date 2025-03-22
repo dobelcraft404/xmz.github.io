@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人博客</title>
+    <title>夏明柘的学习加练手静态网页</title>
     <style>
         * {
             margin: 0;
@@ -135,18 +135,63 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
+        
+        .article-detail {
+            display: none;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        
+        .article-detail.active {
+            display: block;
+        }
+        
+        .article-detail-content {
+            margin-bottom: 20px;
+        }
+        
+        .back-to-blog {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-blog:hover {
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            margin: 0 15px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .social-links a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1 class="blog-title">个人博客</h1>
-            <p class="blog-subtitle">记录生活，分享思考</p>
+            <p class="blog-subtitle">学习加练手</p>
             <nav>
-                <a href="#">首页</a>
-                <a href="#">文章归档</a>
-                <a href="#">关于我</a>
-                <a href="#">联系</a>
+                <a href="#" id="home-link">首页</a>
+                <a href="#" id="archives-link">文章归档</a>
+                <a href="#" id="about-link">关于我</a>
+                <a href="#" id="contact-link">联系</a>
             </nav>
         </header>
         
@@ -154,18 +199,18 @@
             <div class="article-card">
                 <div class="article-image"></div>
                 <div class="article-content">
-                    <h2 class="article-title">这个是我个人用来练手的博客页面</h2>
-                    <p class="article-excerpt">如题，我就是用来练手的，这个html代码甚至都是ai写的</p>
-                    <a href="#" class="read-more"data-article="1">阅读全文</a>
+                    <h2 class="article-title">全ai写的html</h2>
+                    <p class="article-excerpt">后面再慢慢搞</p>
+                    <a href="#" class="read-more" data-article="1">阅读全文</a>
                 </div>
             </div>
             
             <div class="article-card">
                 <div class="article-image"></div>
                 <div class="article-content">
-                    <h2 class="article-title">可能会加新内容</h2>
-                    <p class="article-excerpt">不过什么时候加新内容那就不一定了，看完学习进度</p>
-                    <a href="#" class="read-more"data-article="2">阅读全文</a>
+                    <h2 class="article-title">第二篇文章标题</h2>
+                    <p class="article-excerpt">这是第二篇文章的摘要部分，简要介绍文章的主要内容，吸引读者点击阅读全文。</p>
+                    <a href="#" class="read-more" data-article="2">阅读全文</a>
                 </div>
             </div>
             
@@ -174,16 +219,17 @@
                 <div class="article-content">
                     <h2 class="article-title">第三篇文章标题</h2>
                     <p class="article-excerpt">这是第三篇文章的摘要部分，简要介绍文章的主要内容，吸引读者点击阅读全文。</p>
-                    <a href="#" class="read-more"data-article="3">阅读全文</a>
+                    <a href="#" class="read-more" data-article="3">阅读全文</a>
                 </div>
             </div>
         </div>
+        
         <div class="article-detail" id="article-1">
             <h2 class="article-title">第一篇文章标题</h2>
             <div class="article-detail-content">
-                <p>这是第一篇文章的完整内容。在这里，你可以详细阅读文章的所有内容，包括详细的分析、个人见解以及相关的案例分享。</p>
-                <p>文章可以分为多个段落，每个段落深入探讨一个主题，帮助读者更好地理解文章的核心思想。</p>
-                <p>你还可以添加一些引用、图片或者链接，丰富文章的内容，提升阅读体验。</p>
+                <p>没有系统学习过html</p>
+                <p>所以现在全部代码都是交给ai写的</p>
+                <p>后面再慢慢学，后面两篇文章是ai帮我写的请忽略</p>
             </div>
             <a href="#" class="back-to-blog">返回博客</a>
         </div>
@@ -207,18 +253,12 @@
             </div>
             <a href="#" class="back-to-blog">返回博客</a>
         </div>
-
+        
         <footer>
-             <footer>
             <div class="social-links">
                 <a href="https://github.com/dobelcraft404" target="_blank">GitHub</a>
                 <a href="https://space.bilibili.com/389435821" target="_blank">Bilibili</a>
                 <a href="https://www.zhihu.com/people/xia-ming-zhe-72" target="_blank">知乎</a>
-            </div>
-            <div class="footer-links">
-                <a href="#">GitHub</a>
-                <a href="#">微博</a>
-                <a href="#">知乎</a>
             </div>
             <p>© 2025 个人博客 版权所有</p>
         </footer>
@@ -229,6 +269,10 @@
             const readMoreLinks = document.querySelectorAll('.read-more');
             const backToBlogLinks = document.querySelectorAll('.back-to-blog');
             const articleDetails = document.querySelectorAll('.article-detail');
+            const homeLink = document.getElementById('home-link');
+            const archivesLink = document.getElementById('archives-link');
+            const aboutLink = document.getElementById('about-link');
+            const contactLink = document.getElementById('contact-link');
             
             // 点击"阅读全文"时显示对应的文章详情
             readMoreLinks.forEach(link => {
@@ -268,8 +312,37 @@
                     });
                 });
             });
+            
+            // 导航链接功能
+            homeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                // 隐藏所有文章详情
+                articleDetails.forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                
+                // 滚动到顶部
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            archivesLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('文章归档功能即将上线！');
+            });
+            
+            aboutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('关于我功能即将上线！');
+            });
+            
+            contactLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('联系功能即将上线！');
+            });
         });
     </script>
-    
 </body>
 </html>
